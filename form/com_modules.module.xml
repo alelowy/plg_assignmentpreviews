@@ -1,0 +1,5 @@
+<form>
+	<fieldset name="w3stassignmentpreviewsfieldset" label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_FIELD" addfieldpath="/plugins/system/assignmentpreviews/field">
+		<field name="assignmentpreviewsfieldset" type="assignmentpreviews" label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_LABEL" description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DESC" class=""/>
+	</fieldset>
+</form>
