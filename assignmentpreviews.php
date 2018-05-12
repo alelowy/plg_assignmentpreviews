@@ -20,11 +20,11 @@ class plgSystemAssignmentPreviews extends JPlugin
 	 * @var    boolean
 	 * @since  3.1
 	 */
-//	protected $autoloadLanguage = true; up to 3.1
+	// protected $autoloadLanguage = true;// up to 3.1
 
 	public function __construct(& $subject, $config)
 	{
-		$this->loadLanguage('plg_system_assignedpreview', JPATH_ADMINISTRATOR);
+		$this->loadLanguage('plg_system_assignmentpreviews', JPATH_ADMINISTRATOR); // 3.0 compatible
 		parent::__construct($subject, $config);
 	}
 

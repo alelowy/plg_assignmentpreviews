@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--copyright 2018 - 2018, Alejandro Loewy, w3smart-tools / regio-sites-->
+<!--license GNU General Public License version 2 or later; see LICENSE.txt-->
+<!--link http://w3-smart-tools.com-->
+<!--link http://regio-sites.de-->
+
+
+<!--build   plg_assignmentpreviews  -->
+
+<project name="plg_assignmentpreviews" default="dist">
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+
+
+    <echo msg="build plg_assignmentpreviews V1.0.0 installer" />
+    <echo msg="Clean build dir..." />
+    <target name="cleanbuild">
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="./build" >
+          <!--       <exclude name="*.zip" />-->
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="prepare" depends="cleanbuild">
+        <echo msg="Making directory ./build" />
+        <mkdir dir="./build" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" depends="prepare">
+        <echo msg="Copying files to build directory..." />
+
+        <echo msg="Copying ./index.html to ./build directory..." />
+        <copy file="./index.html" tofile="./build/index.html" />
+
+        <echo msg="Copying ./assignmentpreviews.php to ./build directory..." />
+        <copy file="./assignmentpreviews.php" tofile="./build/assignmentpreviews.php" />
+
+        <echo msg="Copying ./assignmentpreviews.xml to ./build directory/assignmentpreviews.xml" />
+        <copy file="./assignmentpreviews.xml" tofile="./build/assignmentpreviews.xml" />
+
+        <echo msg="Copying ./LICENSE.txt to ./build directory..." />
+        <copy file="./LICENSE.txt" tofile="./build/LICENSE.txt" />
+
+        <echo msg="Copying ./w3st-logo-text.jpg to ./build directory..." />
+        <copy file="./w3st-logo-text.jpg" tofile="./build/w3st-logo-text.jpg" />
+
+        <echo msg="Copying .field directory to ./build/fields directory..." />
+        <copy todir="./build/field">
+            <fileset dir="./field">
+                <include name="**"></include>
+              <!--  <exclude name="**/./**"></exclude> -->
+            </fileset>
+        </copy>
+
+        <echo msg="Copying .form directory to ./build/form directory..." />
+        <copy todir="./build/form">
+            <fileset dir="./form">
+                <include name="**"></include>
+             <!--   <exclude name="**/.svn/**"></exclude> -->
+            </fileset>
+        </copy>
+
+        <echo msg="Copying .language directory to ./build/language directory..." />
+        <copy todir="./build/language">
+            <fileset dir="./language">
+                <include name="**"></include>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT)  Target: dist adding date to file   -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+
+        <echo msg="Making directory ./release" />
+        <mkdir dir="./release" />
+
+             <echo msg="Creating archive..." />
+        <tstamp>
+            <format property="DSTAMP" pattern="%Y.%m.%d.%H:%M" locale="de_DE"/>
+        </tstamp>
+        <zip destfile="./release/plg_assignmentpreviews_V1.0.0_J3.x${DSTAMP}.zip">
+        <!--<zip destfile="./release/plg_assignmentpreviews_V1.0.0_J3.x.zip">-->
+            <fileset dir="./build">
+                <include name="**" />
+            </fileset>
+        </zip>
+
+
+        <echo msg="Files copied and compressed in build directory OK!" />
+
+       <echo msg="Clean build dir..." />
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="./build" >
+                <exclude name="*.zip" />
+            </fileset>
+        </delete>
+        <echo msg="build directory cleaned!" />
+
+    </target>
+</project>

@@ -1,5 +1,60 @@
-<form>
-	<fieldset name="w3stassignmentpreviewsfieldset" label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_FIELD" addfieldpath="/plugins/system/assignmentpreviews/field">
-		<field name="assignmentpreviewsfieldset" type="assignmentpreviews" label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_LABEL" description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DESC" class=""/>
-	</fieldset>
+<?xml version="1.0" encoding="UTF-8"?>
+    <form>
+        <fields name="params">
+        <fieldset name="assignment_previews_field_set" label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_FIELD"  addfieldpath="/plugins/system/assignmentpreviews/field">
+
+            <field type="spacer" name="assignmentpreviews_spacer_powered_by_w3st"  label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_POWERED_BY_W3ST" class="" showon="" />
+
+            <field
+                    name="assignment_previews_width_change"
+                    type="radio"
+                    label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_CHANGE_LABEL"
+                    description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_CHANGE_DESC"
+                    class="btn-group btn-group-yesno"
+                    default="0"
+            >
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+
+            <field
+                    name="assignment_previews_width_1"
+                    type="text"
+                    default="640"
+                    label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_1_LABEL"
+                    description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_DESC"
+                    filter="UINT"
+                    showon="assignment_previews_width_change:1"
+            />
+
+            <field
+                    name="assignment_previews_width_2"
+                    type="text"
+                    default="960"
+                    label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_2_LABEL"
+                    description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_DESC"
+                    filter="UINT"
+                    showon="assignment_previews_width_change:1"
+
+            />
+
+            <field
+                    name="assignment_previews_width_3"
+                    type="text"
+                    default="1024"
+                    label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_3_LABEL"
+                    description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DEVICE_WIDTH_DESC"
+                    filter="UINT"
+                    showon="assignment_previews_width_change:1"
+            />
+
+            <field name="assignment_previews_field"
+                   type="assignmentpreviews"
+                   label="PLG_SYSTEM_ASSIGNMENTPREVIEWS_LABEL"
+                   description="PLG_SYSTEM_ASSIGNMENTPREVIEWS_DESC"
+                   class=""
+            />
+
+    </fieldset>
+    </fields>
 </form>
