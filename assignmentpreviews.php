@@ -12,23 +12,7 @@ defined('_JEXEC') or die;
 
 class plgSystemAssignmentPreviews extends JPlugin
 {
-
-	/**
-	 * Load the language file on instantiation. Note this is only available in Joomla 3.1 and higher.
-	 * If you want to support 3.0 series you must override the constructor
-	 *
-	 * @var    boolean
-	 * @since  3.1
-	 */
-	// protected $autoloadLanguage = true;// up to 3.1
-
-	public function __construct(& $subject, $config)
-	{
-		$this->loadLanguage('plg_system_assignmentpreviews', JPATH_ADMINISTRATOR); // 3.0 compatible
-		parent::__construct($subject, $config);
-	}
-
-    function onContentPrepareForm($form, $data)
+	function onContentPrepareForm($form, $data)
 	{
 		$app = JFactory::getApplication();
 
@@ -45,9 +29,11 @@ class plgSystemAssignmentPreviews extends JPlugin
 					$form->loadFile('com_modules.module', false); // adds form like a subform
 				}
 			}
+
+			// load language after prepare form !
+			$this->loadLanguage('plg_system_assignmentpreviews', JPATH_ADMINISTRATOR ); // 3.0 compatible
+
 		}
-
 		return true;
-    }
-
+	}
 }

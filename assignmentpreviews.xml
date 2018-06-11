@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="plugin" group="system" method="upgrade">
-    <name>PLG_SYSTEM_ASSIGNMENTPREVIEWS_NAME</name>
-    <author>Alejandro Löwy</author>
-    <creationDate>10.05.2018</creationDate>
-    <copyright>Copyright (C) 2018 Regiosites. All rights reserved.</copyright>
-    <license>http://www.gnu.org/licenses/gpl-2.0.html</license>
-    <authorEmail>info@w3smart-tools.com</authorEmail>
-    <authorUrl>https://w3smart-tools.comr</authorUrl>
-    <version>1.0.0</version>
-    <description>PLG_SYSTEM_ASSIGNMENTPREVIEWS_DESCRIPTION</description>
-    <languages folder="language">
-        <language tag="en-GB">en-GB/en-GB.plg_system_assignmentpreviews.ini</language>
-        <language tag="en-GB">en-GB/en-GB.plg_system_assignmentpreviews.sys.ini</language>
-    </languages>
-    <updateservers>
-        <server type="extension" priority="1"
-                name="Assigned Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
-        </server>
+	<name>PLG_SYSTEM_ASSIGNMENTPREVIEWS_NAME</name>
+	<author>Alejandro Löwy</author>
+	<creationDate>10.05.2018</creationDate>
+	<copyright>Copyright (C) 2018 Regiosites. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<authorEmail>info@w3smart-tools.com</authorEmail>
+	<authorUrl>https://w3smart-tools.comr</authorUrl>
+    <version>1.1.0</version>
+	<description>PLG_SYSTEM_ASSIGNMENTPREVIEWS_DESCRIPTION</description>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_system_assignmentpreviews.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_assignmentpreviews.sys.ini</language>
+	</languages>
+	<updateservers>
+            <server type="extension" priority="1"
+                    name="Assigned Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
+            </server>
     </updateservers>
-    <files>
-        <filename plugin="assignmentpreviews">assignmentpreviews.php</filename>
-        <filename>index.html</filename>
-        <filename>LICENSE.txt</filename>
-        <filename>w3st-logo-text.jpg</filename>
-        <folder>form</folder>
-        <folder>field</folder>
-    </files>
+	<files>
+		<filename plugin="assignmentpreviews">assignmentpreviews.php</filename>
+		<filename>index.html</filename>
+		<filename>LICENSE.txt</filename>
+		<filename>w3st-logo-text.jpg</filename>
+		<folder>form</folder>
+		<folder>field</folder>
+	</files>
 </extension>
