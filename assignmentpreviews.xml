@@ -15,7 +15,7 @@
     </languages>
     <updateservers>
         <server type="extension" priority="1"
-                name="Assigned Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
+                name="Assignment Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
         </server>
     </updateservers>
     <files>
