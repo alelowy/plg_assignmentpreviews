@@ -88,8 +88,8 @@
         <tstamp>
             <format property="DSTAMP" pattern="%Y.%m.%d.%H:%M" locale="de_DE"/>
         </tstamp>
-        <zip destfile="./release/plg_assignmentpreviews_V1.1.0_J3.x_J4x_${DSTAMP}.zip">
-        <!--<zip destfile="./release/plg_assignmentpreviews_V1.1.0_J3.x_J4x.zip">-->
+        <!--<zip destfile="./release/plg_system_assignmentpreviews_V1.1.0_J3.x_J4x_${DSTAMP}.zip">-->
+        <zip destfile="./release/plg_system_assignmentpreviews_V1.1.0_J3.x_J4alpha.zip">
             <fileset dir="./build">
                 <include name="**" />
             </fileset>

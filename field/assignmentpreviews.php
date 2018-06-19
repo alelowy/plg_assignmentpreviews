@@ -98,9 +98,9 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
 		$assigned = $fieldsForm->getValue('assigned');
 		$assignmentMode = $fieldsForm->getValue('assignment');
 
-		if($assigned === null || $assignmentMode === null){
-			return '<div class="w3st-assignmentpreviews-cont"> Error: In JFormFieldAssignmentPreviews: assigned or assignment is/are null!</div>';
-		}
+        if($assigned === null || $assignmentMode === null){
+	        return '<div class="w3st-assignmentpreviews-cont"> Error: In JFormFieldAssignmentPreviews: assigned or assignment is/are null!</div>';
+        }
 		$assignmentMode = (string)$assignmentMode;
 		$htmlFieldPreviews = "";
 		$count = count( $assigned );
@@ -110,182 +110,182 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
 		$menues = MenusHelper::getMenuLinks();
 
 
-		// set default width values
-		$width1 = 640;
-		$width2 = 960;
-		$width3 = 1024;
+        // set default width values
+        $width1 = 640;
+        $width2 = 960;
+        $width3 = 1024;
 
 
-		// get width1, width2 and width 3 values from fiels of same form getting the first uint (/[0-9]+/).
-		// check if field exists and
-		$fieldSet = $fieldsForm->getFieldset('assignment_previews_field_set');
-		if ( count($fieldSet) > 0 )
-		{
+        // get width1, width2 and width 3 values from fiels of same form getting the first uint (/[0-9]+/).
+        // check if field exists and
+        $fieldSet = $fieldsForm->getFieldset('assignment_previews_field_set');
+        if ( count($fieldSet) > 0 )
+        {
 
-			if (isset($fieldSet['jform_params_assignment_previews_width_1']) &&
-				property_exists($fieldSet['jform_params_assignment_previews_width_1'], 'value')
-			)
-			{
-				if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_1']->value, $matches) > 0)
-				{
-					$width1 = $matches[0];
-				}
-			}
+            if (isset($fieldSet['jform_params_assignment_previews_width_1']) &&
+                property_exists($fieldSet['jform_params_assignment_previews_width_1'], 'value')
+            )
+            {
+                if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_1']->value, $matches) > 0)
+                {
+                    $width1 = $matches[0];
+                }
+            }
 
-			if (isset($fieldSet['jform_params_assignment_previews_width_2']) &&
-				property_exists($fieldSet['jform_params_assignment_previews_width_2'], 'value')
-			)
-			{
-				if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_2']->value, $matches) > 0)
-				{
-					$width2 = $matches[0];
-				}
-			}
+            if (isset($fieldSet['jform_params_assignment_previews_width_2']) &&
+                property_exists($fieldSet['jform_params_assignment_previews_width_2'], 'value')
+            )
+            {
+                if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_2']->value, $matches) > 0)
+                {
+                    $width2 = $matches[0];
+                }
+            }
 
-			if (isset($fieldSet['jform_params_assignment_previews_width_3']) &&
-				property_exists($fieldSet['jform_params_assignment_previews_width_3'], 'value')
-			)
-			{
-				if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_3']->value, $matches) > 0)
-				{
-					$width3 = $matches[0];
-				}
-			}
-		}
+            if (isset($fieldSet['jform_params_assignment_previews_width_3']) &&
+                property_exists($fieldSet['jform_params_assignment_previews_width_3'], 'value')
+            )
+            {
+                if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_3']->value, $matches) > 0)
+                {
+                    $width3 = $matches[0];
+                }
+            }
+        }
 
-		switch ($assignmentMode)
-		{
-			case "-" : // no pages
-			{
-				$htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_NOPAGES') . '</span></p>';
-				break;
-			}
+        switch ($assignmentMode)
+        {
+            case "-" : // no pages
+            {
+                $htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_NOPAGES') . '</span></p>';
+                break;
+            }
 
-			case "0": // all pages assigned
-			case "1": // on selected
-			{
-				$allPages = false;
-				if ($assignmentMode === "0")
-				{
-					$htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_ALLPAGES') . '</span></p>';
-					$allPages  = true;
-				}
-				else
-				{
-					$htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_ONSELECTED') . '</span></p>';
-				}
+            case "0": // all pages assigned
+            case "1": // on selected
+            {
+                $allPages = false;
+                if ($assignmentMode === "0")
+                {
+                    $htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_ALLPAGES') . '</span></p>';
+                    $allPages  = true;
+                }
+                else
+                {
+                    $htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_ONSELECTED') . '</span></p>';
+                }
 
-				foreach ($menues as $menue)
-				{
-					$menuModalTitle = '<hr><p><span style="font-size: 14px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_MENUTYPE') . ' <strong>' . $menue->menutype . '</strong>:</span></p>';;
+                foreach ($menues as $menue)
+                {
+                    $menuModalTitle = '<hr><p><span style="font-size: 14px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_MENUTYPE') . ' <strong>' . $menue->menutype . '</strong>:</span></p>';;
 
-					$menuModalLinks = "";
+                    $menuModalLinks = "";
 
-					$menuLinks = $menue->links;
-					foreach ($menuLinks as $link)
-					{
-						foreach ($assigned as $item)
-						{
-							if ($link->value === $item || $allPages === true)
-							{
-								$prevLink  = juri::root(false) . 'index.php?Itemid=' . $link->value;
-								$published = "";
-								if (property_exists($link, 'published') && (bool) $link->published === false)
-								{
-									$published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
-								}
+                    $menuLinks = $menue->links;
+                    foreach ($menuLinks as $link)
+                    {
+                        foreach ($assigned as $item)
+                        {
+                            if ($link->value === $item || $allPages === true)
+                            {
+                                $prevLink  = juri::root(false) . 'index.php?Itemid=' . $link->value;
+                                $published = "";
+                                if (property_exists($link, 'published') && (bool) $link->published === false)
+                                {
+                                    $published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
+                                }
 
-								$level = "";
-								if (property_exists($link, 'level'))
-								{
-									$level = str_repeat(' -', $link->level) . '&nbsp;';
-								}
+                                $level = "";
+                                if (property_exists($link, 'level'))
+                                {
+                                    $level = str_repeat(' -', $link->level) . '&nbsp;';
+                                }
 
 
-								$menuModalLinks .= self::createLinks($level, $link->text, $prevLink, $width1, $width2, $width3) . $published . '<p></p>';
-								$added++;
-								if ($added >= $count && $allPages === false) // never break if all pages are assigned or break after list is filled
-								{
-									if (empty($menuModalLinks) === false)
-									{
+                                $menuModalLinks .= self::createLinks($level, $link->text, $prevLink, $width1, $width2, $width3) . $published . '<p></p>';
+                                $added++;
+                                if ($added >= $count && $allPages === false) // never break if all pages are assigned or break after list is filled
+                                {
+                                    if (empty($menuModalLinks) === false)
+                                    {
 
-										$htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
-									}
+                                        $htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
+                                    }
 
-									break(3);
-								}
-							}
-						}
-					}
+                                    break(3);
+                                }
+                            }
+                        }
+                    }
 
-					if (empty($menuModalLinks) === false)
-					{
+                    if (empty($menuModalLinks) === false)
+                    {
 
-						$htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
-					}
-				}
+                        $htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
+                    }
+                }
 
-				break; // switch
-			}
+                break; // switch
+            }
 
-			case "-1": // all except selected
-			{
+            case "-1": // all except selected
+            {
 
-				$htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_EXCEPTSELECTED') . '</span></p>';
+                $htmlFieldPreviews .= '<p><span style="font-size:20px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_SELECTMODE_EXCEPTSELECTED') . '</span></p>';
 
-				foreach ($menues as $menue)
-				{
-					$menuModalTitle = '<hr><p><span style="font-size:14px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_MENUTYPE') . ' <strong>' . $menue->menutype . '</strong>:</span></p>';
+                foreach ($menues as $menue)
+                {
+                    $menuModalTitle = '<hr><p><span style="font-size:14px;font-weight:400;">' . JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_MENUTYPE') . ' <strong>' . $menue->menutype . '</strong>:</span></p>';
 
-					$menuModalLinks = "";
-					$menuType       = $menue->menutype;
-					$menuLinks      = $menue->links;
-					foreach ($menuLinks as $link)
-					{
-						$match = false;
-						foreach ($assigned as $item) // search for assigned in links
-						{
-							$intItem = abs(intval($item));
-							if ($intItem === intval($link->value))
-							{
-								$match = true;
-								break 1;
-							}
-						}
+                    $menuModalLinks = "";
+                    $menuType       = $menue->menutype;
+                    $menuLinks      = $menue->links;
+                    foreach ($menuLinks as $link)
+                    {
+                        $match = false;
+                        foreach ($assigned as $item) // search for assigned in links
+                        {
+                            $intItem = abs(intval($item));
+                            if ($intItem === intval($link->value))
+                            {
+                                $match = true;
+                                break 1;
+                            }
+                        }
 
-						if ($match === false)
-						{
-							$prevLink = juri::root(false) . 'index.php?Itemid=' . $link->value;
+                        if ($match === false)
+                        {
+                            $prevLink = juri::root(false) . 'index.php?Itemid=' . $link->value;
 
-							$published = "";
-							if (property_exists($link, 'published') && (bool) $link->published === false)
-							{
-								$published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
-							}
+                            $published = "";
+                            if (property_exists($link, 'published') && (bool) $link->published === false)
+                            {
+                                $published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
+                            }
 
-							$level = "";
-							if (property_exists($link, 'level'))
-							{
-								$level = str_repeat(' -', $link->level) . '&nbsp;';
-							}
+                            $level = "";
+                            if (property_exists($link, 'level'))
+                            {
+                                $level = str_repeat(' -', $link->level) . '&nbsp;';
+                            }
 
-							$menuModalLinks .= self::createLinks($level, $link->text, $prevLink, $width1, $width2, $width3) . $published . '<p></p>';
+                            $menuModalLinks .= self::createLinks($level, $link->text, $prevLink, $width1, $width2, $width3) . $published . '<p></p>';
 
-							$added++;
-						}
-					}
+                            $added++;
+                        }
+                    }
 
-					if (empty($menuModalLinks) === false)
-					{
+                    if (empty($menuModalLinks) === false)
+                    {
 
-						$htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
-					}
-				}
-			}
-				break; // switch
-		}
+                        $htmlFieldPreviews .= $menuModalTitle . $menuModalLinks;
+                    }
+                }
+            }
+            break; // switch
+        }
 
-		return '<div class="w3st-assignmentpreviews-cont">' . $htmlFieldPreviews . '</div>';
+    	return '<div class="w3st-assignmentpreviews-cont">' . $htmlFieldPreviews . '</div>';
 	}
 
 	function createLinks($level, $linkText, $prevLink , $width1, $width2, $width3){
