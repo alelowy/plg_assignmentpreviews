@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.0" type="plugin" group="system" method="upgrade">
+<extension version="3.1" type="plugin" group="system" method="upgrade">
     <name>PLG_SYSTEM_ASSIGNMENTPREVIEWS_NAME</name>
 	<author>Alejandro Loewy</author>
-    <creationDate>10.05.2018</creationDate>
+    <creationDate>20.06.2018</creationDate>
     <copyright>Copyright (C) 2018 Regiosites. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html</license>
     <authorEmail>info@w3smart-tools.com</authorEmail>
@@ -15,7 +15,7 @@
     </languages>
     <updateservers>
         <server type="extension" priority="1"
-                name="Assignment Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
+                name="System - Assignment Previews"><![CDATA[https://w3smart-tools.com/index.php?option=com_ars&view=update&task=stream&format=xml&id=3&dummy=extension.xml]]>
         </server>
     </updateservers>
     <files>
