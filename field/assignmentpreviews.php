@@ -88,7 +88,7 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
 
 	public function getLabel() {
 
-		if( property_exists ( $this,'form' ) === true ){
+		if( isset ( $this->form ) === true ){
 			$fieldsForm = $this->form;
 
 		}else{
@@ -122,9 +122,7 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
         if ( count($fieldSet) > 0 )
         {
 
-            if (isset($fieldSet['jform_params_assignment_previews_width_1']) &&
-                property_exists($fieldSet['jform_params_assignment_previews_width_1'], 'value')
-            )
+            if ( isset($fieldSet['jform_params_assignment_previews_width_1']->value) )
             {
                 if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_1']->value, $matches) > 0)
                 {
@@ -132,9 +130,7 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
                 }
             }
 
-            if (isset($fieldSet['jform_params_assignment_previews_width_2']) &&
-                property_exists($fieldSet['jform_params_assignment_previews_width_2'], 'value')
-            )
+            if ( isset($fieldSet['jform_params_assignment_previews_width_2']->value) )
             {
                 if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_2']->value, $matches) > 0)
                 {
@@ -142,8 +138,7 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
                 }
             }
 
-            if (isset($fieldSet['jform_params_assignment_previews_width_3']) &&
-                property_exists($fieldSet['jform_params_assignment_previews_width_3'], 'value')
+            if (isset($fieldSet['jform_params_assignment_previews_width_3']->value)
             )
             {
                 if (preg_match('/[0-9]+/', $fieldSet['jform_params_assignment_previews_width_3']->value, $matches) > 0)
@@ -190,13 +185,13 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
                             {
                                 $prevLink  = juri::root(false) . 'index.php?Itemid=' . $link->value;
                                 $published = "";
-                                if (property_exists($link, 'published') && (bool) $link->published === false)
+                                if (isset($link->published) && (bool) $link->published === false)
                                 {
                                     $published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
                                 }
 
                                 $level = "";
-                                if (property_exists($link, 'level'))
+                                if ( isset($link->level) )
                                 {
                                     $level = str_repeat(' -', $link->level) . '&nbsp;';
                                 }
@@ -258,13 +253,13 @@ class JFormFieldAssignmentPreviews extends JFormFieldSpacer {
                             $prevLink = juri::root(false) . 'index.php?Itemid=' . $link->value;
 
                             $published = "";
-                            if (property_exists($link, 'published') && (bool) $link->published === false)
+                            if (isset($link->published) && (bool) $link->published === false)
                             {
                                 $published = JText::_('PLG_SYSTEM_ASSIGNMENTPREVIEWS_UNPUBLISHED');
                             }
 
                             $level = "";
-                            if (property_exists($link, 'level'))
+                            if (isset($link->level))
                             {
                                 $level = str_repeat(' -', $link->level) . '&nbsp;';
                             }

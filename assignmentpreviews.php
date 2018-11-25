@@ -27,11 +27,12 @@ class plgSystemAssignmentPreviews extends JPlugin
 				{
 					JForm::addFormPath( dirname(__FILE__).'/form' ); // adds form in /form
 					$form->loadFile('com_modules.module', false); // adds form like a subform
+					// load language after prepare form !
+					$this->loadLanguage('plg_system_assignmentpreviews', JPATH_ADMINISTRATOR ); // 3.0 compatible to j4
 				}
 			}
 
-			// load language after prepare form !
-			$this->loadLanguage('plg_system_assignmentpreviews', JPATH_ADMINISTRATOR ); // 3.0 compatible
+
 
 		}
 		return true;
